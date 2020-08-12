@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pagina 4</title>
+    </head>
+    
+<style>
+    #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: lawngreen;
+    }
+
+    #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color:royalblue;
+    }
+</style>
+
+<body style="background-color: goldenrod;">
+     <br/>
+    <p><button onclick="Movimiento1()">Ir al final</button></p>
+    <br/>
+    <p><button onclick="Movimiento2()">Ir al inicio</button></p>
+
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+
+    <script>
+        function Movimiento1() {
+            var elem = document.getElementById("animate");
+            var pos = 0;
+            var id = setInterval(Pasos, 5);
+            function Pasos() {
+                if (pos == 350) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";
+                    console.log(pos);
+                }
+            }
+        }
+
+        function Movimiento2() {
+            var elem = document.getElementById("animate");
+            var pos = 350;
+            var id = setInterval(Pasos, 5);
+            function Pasos() {
+                if (pos == 0) {
+                    clearInterval(id);
+                } else {
+                    pos--;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";
+                }
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

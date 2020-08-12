@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 3</title>
+</head>
+
+
+<style>
+    table {
+        width: 100%;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    #mTabla tr:nth-child(even) {
+        background-color: cadetblue;
+    }
+
+    #mTabla tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    #mTabla th {
+        background-color: cadetblue;
+        color: white;
+    }
+</style>
+<style>
+    #finpage {
+        position: absolute;
+        bottom: 1px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size:small;
+        width: 30%;
+
+    }
+</style>
+
+
+<body style="background-color: gainsboro;">
+    <div id="datos" ,class="container">
+        <!--Generar la tabla-->
+        <h2>Lenguajes de Programacion</h2>
+
+        <section>
+            <br />
+            <br />
+            <button onclick="construirtabla()">Crear Tabla</button>
+
+            <br />
+            <br />
+        </section>
+
+        <footer id="finpage">
+            <p id = "p1">1.-Apache Netbeans para Java</p>
+
+            <p id = "p2">2.-Visual Studio para C#</p>
+
+            <p id = "p3">3.-PHP Storm Y Neatbeans para PHP</p>
+
+            <p id = "p4">4.-Devcode para C++</p>
+
+            <p id = "p5">5.-Visual Studio Code para Javascript</p>
+            <br />
+            <button onclick="IncrementarTamañoLetra()">Cambiar Tamaño Letra</button>
+        </footer>
+
+
+    </div>
+
+</body>
+
+<table class="table table-striped">
+    <tr class="bg-info">
+        <th style="background-color: cadetblue;">Lenguaje de Programacion</th>
+        <th style="background-color: cadetblue;">Año de Lanzamiento</th>
+
+
+    </tr>
+
+    <tbody id="mTabla">
+
+    </tbody>
+</table>
+
+<script>
+    var Tabla = [
+        { 'Lenguaje': 'Java', 'Año': '1996' },
+        { 'Lenguaje': 'C++', 'Año': '1979' },
+        { 'Lenguaje': 'C#', 'Año': '2000' },
+        { 'Lenguaje': 'PHP', 'Año': '1996' },
+        { 'Lenguaje': 'Javascript', 'Año': '1995' },
+
+    ]
+
+    function construirtabla() {
+        var datos = document.getElementById('mTabla')
+
+        for (var i = 0; i < Tabla.length; i++) {
+            var row = `<tr>
+							<td>${Tabla[i].Lenguaje}</td>
+							<td>${Tabla[i].Año}</td>
+							
+					  </tr>`
+            datos.innerHTML += row
+
+
+        }
+    }
+    var cont = 5;
+
+    var text1 = document.getElementById("p1");
+    var text2 = document.getElementById("p2");
+    var text3 = document.getElementById("p3");
+    var text4 = document.getElementById("p4");
+    var text5 = document.getElementById("p5");
+    var textos = [text1,text2,text3,text4,text5];
+    function IncrementarTamañoLetra() {
+
+        var size;
+
+        for (var i = 0; i < Tabla.length; i++) {
+            size = i*10;
+           textos[i]= document.getElementById("p"+(i+1)).style.fontSize=size+"px";
+          
+           
+
+        }
+    }
+
+
+
+</script>
+
+
+</html>
